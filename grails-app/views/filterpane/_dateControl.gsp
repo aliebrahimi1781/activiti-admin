@@ -1,0 +1,2 @@
+    <%=bootstrap.datePicker(ctrlAttrs)%>
+
