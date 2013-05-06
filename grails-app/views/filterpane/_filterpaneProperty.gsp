@@ -1,5 +1,6 @@
-<label class="control-label" for="">${fieldLabel}</label>
-<div class="controls">
+<tr>
+<td>${fieldLabel}</td>
+<td>
 	<g:select id="${opName}" 
 			  name="${opName}" 
 			  from="${opKeys}" 
@@ -7,6 +8,8 @@
 			  value="${opValue}"
 			  valueMessagePrefix="fp.op"
 			  onChange="grailsFilterPane.filterOpChange('${opName}', '${ctrlAttrs.id}');" />
+</td>
+<td>
 	<filterpane:input ctrlType="${ctrlType}" ctrlAttrs="${ctrlAttrs}" />
 
 	<g:if test="${toCtrlAttrs != null}">
@@ -15,4 +18,5 @@
 		<filterpane:input ctrlType="${ctrlType}" ctrlAttrs="${toCtrlAttrs}" />
 	</span>
 	</g:if>
-</div>
+</td>
+</tr>

@@ -6,7 +6,7 @@
         <meta name="layout" content="bootstrap">
         <g:set var="entityName" value="${message(code: 'processInstanceDetail.label', default: 'ProcessInstanceDetail')}" />
         <title><g:message code="default.list.label" args="[entityName]" /></title>
-        <filterpane:includes />
+        <r:require module="filterpane" />
     </head>
     <body>
         <div class="row-fluid">
@@ -20,7 +20,7 @@
                 <bootstrap:alert class="alert-info">${flash.message}</bootstrap:alert>
                 </g:if>
                 <filterpane:filterPane domain="ProcessInstanceDetail" filterProperties="businessKey, startTime, endTime, processDefinitionId" />    
-                <filterpane:filterButton text="Whatever You Wish" />
+                <filterpane:filterButton text="Filter data" />
                 <table class="table table-striped">
                     <thead>
                         <tr>

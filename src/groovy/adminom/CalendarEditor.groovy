@@ -16,12 +16,14 @@ public class CalendarEditor extends StructuredDateEditor {
     @Override
     public String getAsText() {
         Date date = super.getValue()
+        println currentDateFormat.format(date)
         return currentDateFormat.format(date)
     }
 
     @Override
     public Date getValue() {
         Date date = super.getValue()
+        println "getvalue "+currentDateFormat.format(date)
         return date
     }
 }

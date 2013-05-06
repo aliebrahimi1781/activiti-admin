@@ -7,7 +7,7 @@ import org.springframework.beans.PropertyEditorRegistry
 
 public class CustomPropertyEditorRegistrar implements PropertyEditorRegistrar {
 	def messageSource
-	private final log = org.apache.commons.logging.LogFactory.getLog(CustomPropertyEditorRegistrar)
+	//private final log = org.apache.commons.logging.LogFactory.getLog(CustomPropertyEditorRegistrar)
 
 	@Override
 	public void registerCustomEditors(PropertyEditorRegistry registry) {
@@ -15,7 +15,7 @@ public class CustomPropertyEditorRegistrar implements PropertyEditorRegistrar {
 		final String pattern = "${messageSource.getMessage('default.date.format.short',null,Locale.getDefault())}"
 		final dateFormat = new SimpleDateFormat(pattern)
 
-		 log.debug "Registring custom editor for dates, locale:${Locale.getDefault().getLanguage()}-${Locale.getDefault().getCountry()}, pattern:${pattern}"
+		log.debug "Registring custom editor for dates, locale:${Locale.getDefault().getLanguage()}-${Locale.getDefault().getCountry()}, pattern:${pattern}"
 
 		registry.registerCustomEditor(Date.class, new CalendarEditor(dateFormat, false))
 	}

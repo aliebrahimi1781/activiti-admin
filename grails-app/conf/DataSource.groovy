@@ -1,9 +1,9 @@
 dataSource {
     pooled = true
     readonly=true
-    driverClassName = "org.h2.Driver"
-    username = "sa"
-    password = ""
+    driverClassName = "com.mysql.jdbc.Driver"
+    username = "activiti"
+    password = "activiti"
 }
 hibernate {
     cache.use_second_level_cache = true
@@ -15,19 +15,19 @@ environments {
     development {
         dataSource {
             dbCreate = "validate" // one of 'create', 'create-drop', 'update', 'validate', ''
-            url = "jdbc:h2:tcp://localhost/~/activiti"//;MVCC=TRUE;LOCK_TIMEOUT=10000"
+            url = "jdbc:mysql://localhost:3306/activiti?autoReconnect=true"
         }
     }
     test {
         dataSource {
             dbCreate = "update"
-            url = "jdbc:h2:mem:testDb;MVCC=TRUE;LOCK_TIMEOUT=10000"
+            url = "jdbc:mysql://localhost:3306/activiti?autoReconnect=true"
         }
     }
     production {
         dataSource {
             dbCreate = "update"
-            url = "jdbc:h2:prodDb;MVCC=TRUE;LOCK_TIMEOUT=10000"
+            url = "jdbc:mysql://localhost:3306/activiti?autoReconnect=true"
             pooled = true
             properties {
                maxActive = -1

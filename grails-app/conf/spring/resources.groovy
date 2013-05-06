@@ -13,8 +13,8 @@ beans = {
         java.util.Locale.setDefault(defaultLocale)
     }
     
-    customPropertyEditorRegistrar(adminom.CustomPropertyEditorRegistrar) {
-        messageSource = ref('messageSource')
-    }
+    // customPropertyEditorRegistrar(adminom.CustomPropertyEditorRegistrar) {
+    //    messageSource = ref('messageSource')
+    // }
 }
 

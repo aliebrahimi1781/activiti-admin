@@ -44,7 +44,7 @@ grails.project.dependency.resolution = {
     dependencies {
         // specify dependencies here under either 'build', 'compile', 'runtime', 'test' or 'provided' scopes e.g.
 
-        // runtime 'mysql:mysql-connector-java:5.1.22'
+        runtime 'mysql:mysql-connector-java:5.1.22'
     }
 
     plugins {
@@ -56,7 +56,7 @@ grails.project.dependency.resolution = {
         compile ":fields:1.3"
         compile ":joda-time:1.4"
         compile ":rest:0.7"
-        compile ":filterpane:2.1.4"
+        compile ":filterpane:2.1.6"
         // Uncomment these (or add new ones) to enable additional resources capabilities
         //runtime ":zipped-resources:1.0"
         //runtime ":cached-resources:1.0"

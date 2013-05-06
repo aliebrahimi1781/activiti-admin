@@ -77,8 +77,9 @@ environments {
 
 // log4j configuration
 log4j = {
-    debug "grails.app.services"
-    debug "grails.app.controllers"
+    debug "grails.app.services.adminom"
+    debug "grails.app.controllers.adminom"
+    debug "groovy.adminom"
     error "org.apache.http.headers"
     error "org.apache.http.wire"
     // Example of changing the log pattern for the default console appender:

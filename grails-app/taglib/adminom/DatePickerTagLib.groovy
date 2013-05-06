@@ -128,25 +128,43 @@ class DatePickerTagLib {
 
         // get the localized format for dates. NOTE: datepicker only uses Lowercase syntax and does not understand hours, seconds, etc. (it uses: dd, d, mm, m, yyyy, yy)
         def messageSource = ApplicationHolder.application.mainContext.getBean('messageSource')
-        String dateFormat = messageSource.getMessage("default.date.datepicker.format",null,null,LocaleContextHolder.locale )
-        if (!dateFormat) { // if date.datepicker.format is not used use date.format but remove characters not used by datepicker
-            dateFormat = messageSource.getMessage("default.date.format",null,'mm/dd/yyyy',LocaleContextHolder.locale )\
-                .replace('z', '').replace('Z', '')\
-                .replace('h', '').replace('H', '')\
-                .replace('k', '').replace('K', '')\
-                .replace('w', '').replace('W', '')\
-                .replace('s', '').replace('S', '')\
-                .replace('m', '').replace('a', '').replace('D', '').replace('E', '').replace('F', '').replace('G', '').replace(':', '')\
-                .replace('MMM', 'MM').replace('ddd', 'dd')\
-                .trim()\
-                .toLowerCase()
-        }
-        String formattedDate = g.formatDate(format: dateFormat.replace('m', 'M'), date: c?.getTime())
-        out.println "   <div id=\"${id}-container\" class=\"input-append date datepicker\" data-date=\"${formattedDate}\" data-date-format=\"${dateFormat}\">"
-        // out.println "     <input id=\"${id}\" name=\"${name}\" class=\"date\" size=\"16\" type=\"text\" value=\"${formattedDate}\" data-date-format=\"${dateFormat}\"/>"
-        out.println "     <input id=\"${id}\" name=\"${name}\" size=\"16\" type=\"text\" value=\"${formattedDate}\" readonly/>"
-        out.println "     <span class=\"add-on\"><i class=\"icon-calendar\"></i></span>"
-        out.println "   </div>"
+        String dateFormat = messageSource.getMessage("default.date.format",null,'dd/MM/yyyy HH:mm',LocaleContextHolder.locale )
+        String dateFormatJS = dateFormat.tr("Hh","hH")
+        String formattedDate = g.formatDate(format: dateFormat, date: c?.getTime())
+        out << """
+            <input type="hidden" name="${name}" id="${id}" value="date.struct" />
+            <input type="hidden" name="${name}_day" id="${id}_day" value="${day}" />
+            <input type="hidden" name="${name}_month" id="${id}_month" value="${month}" />
+            <input type="hidden" name="${name}_year" id="${id}_year" value="${year}" />
+            <input type="hidden" name="${name}_hour" id="${id}_hour" value="${hour}" />
+            <input type="hidden" name="${name}_minute" id="${id}_minute" value="${minute}" />
+            <div id=\"${id}-container\" class=\"input-append date\">
+                <input id=\"${id}-holder\" name=\"${name}-holder\" size=\"16\" type=\"text\" value=\"${formattedDate}\" data-format=\"${dateFormatJS}\" readonly/>
+                <span class=\"add-on\"><i data-time-icon="icon-time" data-date-icon="icon-calendar"></i></span>
+            </div>
+        """
+        def sb = new StringBuffer()
+        sb << """
+            \$('#${id}-container').datetimepicker()
+                .on('changeDate', function(ev){
+                        try{
+                            var date = ev.date
+                            \$('#${id}_month').attr("value",date.getMonth() +1); 
+                            \$('#${id}_day').attr("value",date.getDate());
+                            \$('#${id}_year').attr("value",date.getFullYear());
+                            \$('#${id}_hour').attr("value",date.getHours());
+                            \$('#${id}_minute').attr("value",date.getMinutes());
+                            }
+                        catch(error){
+                            \$('#${id}_month').attr("value","");
+                            \$('#${id}_day').attr("value","");
+                            \$('#${id}_year').attr("value","");
+                            \$('#${id}_hour').attr("value","");
+                            \$('#${id}_minute').attr("value","");
+                        }
+                });
+        """
+        out << r.script() { sb.toString() }
     }
 
     /**
