@@ -8,7 +8,8 @@
 				keys="${sortKeys}" 
 				optionValue="filterPaneFieldName" 
 				value="${sortValue}"
-				noSelection="${noSelection}" />
+				noSelection="${noSelection}" 
+				class = "selectpicker"/>
 	</g:if>
 	<g:else>
 		<g:select name="sort"
@@ -16,7 +17,8 @@
 				keys="${sortKeys}"
 				valueMessagePrefix="${sortValueMessagePrefix}"
 				noSelection="${noSelection}"
-				value="${sortValue}" />
+				value="${sortValue}" 
+				class = "selectpicker"/>
 	</g:else>
 	&nbsp;
 	<g:radio name="order" value="asc" checked="${orderAsc}" />

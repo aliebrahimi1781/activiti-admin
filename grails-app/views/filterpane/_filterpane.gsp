@@ -6,7 +6,7 @@
   </g:if>
   <g:set var="renderForm" value="${fp.customForm == false}"/>
   <g:if test="${renderForm}">
-    <form name="${fp.formName}" id="${fp.formName}" method="post" action="${createLink(action: fp.formAction)}">
+    <form name="${fp.formName}" id="${fp.formName}" method="post" action="${createLink(action: fp.formAction)}" class="form-horizontal">
   </g:if>
 <%-- Do we still need this hidden prop? --%>
   <input type="hidden" name="filterProperties" value="${fp.filterProperties}"/>
@@ -14,11 +14,9 @@
   <input type="hidden" name="uniqueCountColumn" value="${fp.uniqueCountColumn}"/>
 
 
-  <table cellspacing="0" cellpadding="0" class="filterPaneTable">
-    <g:each in="${fp.properties}" var="propMap">
-      <g:render template="/filterpane/filterpaneProperty" model="${propMap}"/>
-    </g:each>
-  </table>
+  <g:each in="${fp.properties}" var="propMap">
+    <g:render template="/filterpane/filterpaneProperty" model="${propMap}"/>
+  </g:each>
 
   <g:if test="${fp.showSortPanel == true}">
 

@@ -19,7 +19,7 @@
                 <g:if test="${flash.message}">
                 <bootstrap:alert class="alert-info">${flash.message}</bootstrap:alert>
                 </g:if>
-                <filterpane:filterPane domain="ProcessInstanceDetail" filterProperties="businessKey, startTime, endTime, processDefinitionId" />    
+                <filterpane:filterPane domain="ProcessInstanceDetail" filterProperties="businessKey, startTime, endTime, processDefinitionId" showSortPanel="false" showTitle="false"/>    
                 <filterpane:filterButton text="Filter data" />
                 <table class="table table-striped">
                     <thead>

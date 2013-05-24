@@ -3,23 +3,83 @@
 	{
 		"selected_items":
 		[
+			[
+				"star",
+				"startDate"
+			],
+			[
+				"process",
+				"processCountByDefinition"
+			],
+			[
+				"ma",
+				"margin-bottom"
+			],
+			[
+				"datef",
+				"dateFormatJS"
+			]
 		]
 	},
 	"buffers":
 	[
+		{
+			"file": "grails-app/controllers/adminom/ReportController.groovy",
+			"settings":
+			{
+				"buffer_size": 1597,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "grails-app/views/report/globalView.gsp",
+			"settings":
+			{
+				"buffer_size": 2445,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "grails-app/conf/ApplicationResources.groovy",
+			"settings":
+			{
+				"buffer_size": 1108,
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 0.0,
+		"height": 392.0,
 		"selected_items":
 		[
+			[
+				"pac ins",
+				"Package Control: Install Package"
+			],
+			[
+				"gitadd",
+				"Git: Add..."
+			],
+			[
+				"packins",
+				"Package Control: Install Package"
+			],
+			[
+				"pack",
+				"Package Control: Remove Package"
+			],
+			[
+				"packa",
+				"Package Control: Install Package"
+			]
 		],
-		"width": 0.0
+		"width": 449.0
 	},
 	"console":
 	{
-		"height": 0.0
+		"height": 139.0
 	},
 	"distraction_free":
 	{
@@ -32,6 +92,27 @@
 	},
 	"file_history":
 	[
+		"/home/nolivier/devel/activiti-admin/grails-app/domain/adminom/ProcessInstanceDetail.groovy",
+		"/home/nolivier/devel/activiti-admin/grails-app/i18n/messages.properties",
+		"/home/nolivier/devel/activiti-admin/grails-app/views/processInstanceDetail/list.gsp",
+		"/home/nolivier/devel/activiti-admin/grails-app/views/filterpane/_filterpaneProperty.gsp",
+		"/home/nolivier/devel/activiti-admin/grails-app/views/filterpane/_filterpane.gsp",
+		"/home/nolivier/devel/activiti-admin/web-app/js/application.js",
+		"/home/nolivier/devel/activiti-admin/web-app/css/scaffolding.css",
+		"/home/nolivier/devel/activiti-admin/grails-app/views/filterpane/_filterButton.gsp",
+		"/home/nolivier/devel/activiti-admin/grails-app/conf/ApplicationResources.groovy",
+		"/home/nolivier/devel/activiti-admin/web-app/css/appli.css",
+		"/home/nolivier/devel/activiti-admin/grails-app/views/filterpane/_filterpaneButtons.gsp",
+		"/home/nolivier/devel/activiti-admin/grails-app/views/filterpane/_filterpaneSort.gsp",
+		"/home/nolivier/devel/activiti-admin/grails-app/taglib/adminom/DatePickerTagLib.groovy",
+		"/home/nolivier/devel/activiti-admin/grails-app/views/filterpane/_dateControl.gsp",
+		"/home/nolivier/devel/activiti-admin/grails-app/conf/BuildConfig.groovy~",
+		"/home/nolivier/devel/activiti-admin/grails-app/i18n/messages_it.properties",
+		"/home/nolivier/devel/activiti-admin/grails-app/conf/Config.groovy",
+		"/home/nolivier/devel/activiti-admin/grails-app/conf/spring/resources.groovy",
+		"/home/nolivier/devel/activiti-admin/grails-app/controllers/adminom/ProcessInstanceDetailController.groovy",
+		"/home/nolivier/devel/activiti-admin/src/groovy/adminom/CalendarEditor.groovy",
+		"/home/nolivier/devel/activiti-admin/src/groovy/adminom/CustomPropertyEditorRegistrar.groovy",
 		"/home/nolivier/angular-test/app/scripts/controllers/main.js",
 		"/home/nolivier/.config/sublime-text-2/Packages/Default/Preferences.sublime-settings",
 		"/home/nolivier/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
@@ -54,6 +135,10 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"entityName",
+			"hh",
+			"\n        ",
+			"        \n"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -71,8 +156,91 @@
 	"groups":
 	[
 		{
+			"selected": 1,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "grails-app/controllers/adminom/ReportController.groovy",
+					"settings":
+					{
+						"buffer_size": 1597,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1504,
+								1504
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Grails/Controller/GrailsController.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 51.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "grails-app/views/report/globalView.gsp",
+					"settings":
+					{
+						"buffer_size": 2445,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2195,
+								2195
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 816.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "grails-app/conf/ApplicationResources.groovy",
+					"settings":
+					{
+						"buffer_size": 1108,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								485,
+								485
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Groovy/Groovy.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -82,7 +250,7 @@
 	},
 	"input":
 	{
-		"height": 0.0
+		"height": 33.0
 	},
 	"layout":
 	{
@@ -122,16 +290,16 @@
 	},
 	"select_project":
 	{
-		"height": 0.0,
+		"height": 500.0,
 		"selected_items":
 		[
 		],
-		"width": 0.0
+		"width": 380.0
 	},
 	"show_minimap": true,
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 150.0,
+	"side_bar_width": 284.0,
 	"status_bar_visible": true
 }

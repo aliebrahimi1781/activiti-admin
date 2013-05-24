@@ -11,6 +11,9 @@ class ProcessInstanceDetail {
     Date endTime
     String endActivityId
     Long duration
+
+    Date startDate
+
     static hasMany = [ 
         tasks: Task, 
         activities: Activity,
@@ -33,6 +36,8 @@ class ProcessInstanceDetail {
         startUserId column:'START_USER_ID_'
         startActivityId column:'START_ACT_ID_'
         endActivityId column:'END_ACT_ID_'
+
+        startDate formula: "date(START_TIME_)"
 
         version false
     }
