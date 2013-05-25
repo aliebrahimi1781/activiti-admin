@@ -8,23 +8,6 @@ modules = {
 
     }
 
-    d3 {
-    	resource url: 'js/d3/d3.v3.js'
-    	resource url: 'js/d3/nv.d3.js'
-    	resource url: 'css/d3/nv.d3.css'
-    }
-
-    raphael {
-        resource url: 'js/raphael/raphael-min.js'
-    }
-
-    graphael {
-        dependsOn 'raphael'
-        resource url: 'js/raphael/g.raphael-min.js'
-        resource url: 'js/raphael/g.pie-min.js'
-        resource url: 'js/raphael/g.bar-min.js'
-    }
-
     jqplot {
         resource url: 'css/jqplot/jquery.jqplot.css'
         resource url: 'js/jqplot/jquery.jqplot.min.js'
