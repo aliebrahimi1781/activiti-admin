@@ -7,17 +7,19 @@ class ProcessInstanceDetailController {
     def filterPaneService
 
     def index() {
+        log.debug "action 'index' - ${params}"
         redirect action: 'list', params: params
     }
 
     def list() {
+        log.debug "action 'list' - ${params}"
         params.max = Math.min(params.max ? params.int('max') : 10, 100)
         [processInstanceDetailInstanceList: ProcessInstanceDetail.list(params), processInstanceDetailInstanceTotal: ProcessInstanceDetail.count()]
     }
 
     def filter = {
+        log.debug "action 'filter' - ${params}"
         if(!params.max) params.max = 10
-        log.debug params
         render( view:'list',
             model:[ processInstanceDetailInstanceList: filterPaneService.filter( params, ProcessInstanceDetail ),
             ProcessInstanceDetailCount: filterPaneService.count( params, ProcessInstanceDetail ),
@@ -25,7 +27,18 @@ class ProcessInstanceDetailController {
             params:params ] )
     }
 
+    def abortProcess() {
+        log.debug "action 'abortProcess' - ${params}"
+        redirect action:'list'
+    }
+
+    def retryProcess() {
+        log.debug "action 'retryProcess' - ${params}"
+        redirect action:'list'
+    }
+
     def show() {
+        log.debug "action 'show' - ${params}"
         def processInstanceDetailInstance = ProcessInstanceDetail.get(params.id)
         if (!processInstanceDetailInstance) {
 			flash.message = message(code: 'default.not.found.message', args: [message(code: 'processInstanceDetail.label', default: 'ProcessInstanceDetail'), params.id])
@@ -37,7 +50,7 @@ class ProcessInstanceDetailController {
     }
 
     def displayDiagram() {
-    	log.debug "displayDiagram id=${params.id}"
+        log.debug "action 'displayDiagram' - ${params}"
 	    def img = orderManagementService.getProcessInstanceDiagram(params.id)
 	    if (!img) return
 
