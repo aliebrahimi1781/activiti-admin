@@ -25,8 +25,39 @@
 				</div>
 				<g:form class="form-horizontal" action="manage" id="${processInstanceDetailInstance.id}">
 					<div class="form-actions">
-                        <g:actionSubmit class="btn btn-warning" value="${message(code: 'default.button.retry.label')}" action="retryProcess" />
-                        <g:actionSubmit class="btn btn-danger" value="${message(code: 'default.button.abort.label')}" action="abortProcess" />
+                        <a href="#retry-confirm" role="button" class="btn btn-warning" data-toggle="modal"><g:message code='default.button.retry.label'/></a>
+                        
+                        <div id="retry-confirm" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                <h3 id="myModalLabel">Retry</h3>
+                            </div>
+                            <div class="modal-body">
+                                <p>You are about to retry this process execution.</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+                                <g:actionSubmit class="btn btn-warning" value="Confirm" action="retryProcess" />
+                            </div>
+                        </div>
+                        
+                        <a href="#abort-confirm" role="button" class="btn btn-danger" data-toggle="modal"><g:message code='default.button.abort.label'/></a>
+                        
+                        <div id="abort-confirm" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                <h3 id="myModalLabel">Retry</h3>
+                            </div>
+                            <div class="modal-body">
+                                <p>You are about to abort this process execution.</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+                                <g:actionSubmit class="btn btn-danger" value="Confirm" action="abortProcess" />
+                            </div>
+                        </div>
+                    </div>
+                    
                     </div>
                 </g:form>
 				<dl class="dl-horizontal">
@@ -148,31 +179,8 @@
 						    	<td><g:formatDate date="${activityInstance?.endTime}"/></td>
 						    	<td>${activityInstance.duration}</td>
                                 <td>
-                                	<div class="dropdown">
-	                                	<a class="dropdown-toggle" id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="xxx">
-	                                		Manage
-											<b class="caret"></b>
-										</a>
-										<ul id="menu1" class="dropdown-menu" role="menu" aria-labelledby="drop4">
-											<li role="presentation">
-												<g:link action="show" id="${activityInstance?.id}"><g:message code="default.button.reqresp"/></g:link>
-											</li>
-											<li role="presentation" class="divider"></li>
-											<li role="presentation">
-	                  							<g:link action="show" id="${activityInstance?.id}"><g:message code="default.button.activity.retry.label"/></g:link>
-	                  						</li>
-	                  						<li role="presentation">
-	                  							<g:link action="show" id="${activityInstance?.id}"><g:message code="default.button.activity.modify.label"/></g:link>
-	                  						</li>
-	                  						<li role="presentation">
-	                  							<g:link action="show" id="${activityInstance?.id}"><g:message code="default.button.activity.cancel.label"/></g:link>
-	                  						</li>
-	                  						<li role="presentation">
-	                  							<g:link action="show" id="${activityInstance?.id}"><g:message code="default.button.activity.forceok.label"/></g:link>
-	                  						</li>
-	                  						
-	                  					</ul>
-	                  				</div>
+                                	<a href="#manage-popup" role="button" class="btn" data-toggle="modal">Manage</a>
+                                	
                                 </td>
 						    </tr>
 						</tbody>
@@ -231,5 +239,22 @@
 			</div>
 
 		</div>
+		<div id="manage-popup" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <h3 id="myModalLabel">Pop-up activity</h3>
+                    </div>
+                    <div class="modal-body">
+                        <p>...</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+                        <g:link class="btn" action="show" id="${activityInstance?.id}"><g:message code="default.button.reqresp"/></g:link>
+							<g:link class="btn" action="show" id="${activityInstance?.id}"><g:message code="default.button.activity.retry.label"/></g:link>
+							<g:link class="btn" action="show" id="${activityInstance?.id}"><g:message code="default.button.activity.modify.label"/></g:link>
+							<g:link class="btn" action="show" id="${activityInstance?.id}"><g:message code="default.button.activity.cancel.label"/></g:link>
+							<g:link class="btn" action="show" id="${activityInstance?.id}"><g:message code="default.button.activity.forceok.label"/></g:link>
+                    </div>
+                </div>
 	</body>
 </html>

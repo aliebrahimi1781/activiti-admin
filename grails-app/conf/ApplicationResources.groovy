@@ -16,4 +16,5 @@ modules = {
         resource url: 'js/jqplot/plugins/jqplot.categoryAxisRenderer.min.js'
         resource url: 'js/jqplot/plugins/jqplot.pointLabels.min.js'
     }
+
 }
