@@ -17,4 +17,10 @@ modules = {
         resource url: 'js/jqplot/plugins/jqplot.pointLabels.min.js'
     }
 
+    modal {
+        resource url: 'css/bootstrap-modal/bootstrap-modal.css'
+        resource url: 'js/bootstrap-modal/bootstrap-modal.js'
+        resource url: 'js/bootstrap-modal/bootstrap-modalmanager.js'
+    }
+
 }

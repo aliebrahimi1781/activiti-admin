@@ -7,6 +7,8 @@
         <g:set var="entityName" value="${message(code: 'processInstanceDetail.label', default: 'ProcessInstanceDetail')}" />
         <title><g:message code="default.list.label" args="[entityName]" /></title>
         <r:require module="filterpane" />
+        <r:require module="modal" />
+
     </head>
     <body>
         <div class="row-fluid">

@@ -49,6 +49,13 @@ class ProcessInstanceDetailController {
         [processInstanceDetailInstance: processInstanceDetailInstance]
     }
 
+    def activityManage() {
+        log.debug "action 'show' - ${params}"
+        def activity = Activity.get(params.activityid)
+        log.debug activity
+        render(view:'activity', model:[activityInstance:activity])
+    }
+
     def displayDiagram() {
         log.debug "action 'displayDiagram' - ${params}"
 	    def img = orderManagementService.getProcessInstanceDiagram(params.id)

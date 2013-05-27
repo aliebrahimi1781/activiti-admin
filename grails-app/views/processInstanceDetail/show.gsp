@@ -6,6 +6,8 @@
 		<meta name="layout" content="bootstrap">
 		<g:set var="entityName" value="${message(code: 'processInstanceDetail.label', default: 'ProcessInstanceDetail')} ${processInstanceDetailInstance.id}" />
 		<title><g:message code="default.show.label" args="[entityName]" /></title>
+		<r:require module="modal" />
+
 	</head>
 	<body>
 		<div class="row-fluid">
@@ -179,13 +181,28 @@
 						    	<td><g:formatDate date="${activityInstance?.endTime}"/></td>
 						    	<td>${activityInstance.duration}</td>
                                 <td>
-                                	<a href="#manage-popup" role="button" class="btn" data-toggle="modal">Manage</a>
+                                	<button class="manage-activity btn" data-toggle="modal" href="${g.createLink(controller:'processInstanceDetail',action:'activityManage', params:[activityid:activityInstance.id])}">Manage</button>
                                 	
                                 </td>
 						    </tr>
 						</tbody>
 						</g:each>
 					</table>
+					<div id="manage-activity-modal" class="modal hide" tabindex="-1"></div>
+                	<r:script>
+                		var $modal = $('#manage-activity-modal');
+
+						$('.manage-activity').on('click', function(){
+						  // create the backdrop and wait for next modal to be triggered
+						  $('body').modalmanager('loading');
+						  var $url= $(this).attr('href')
+						  setTimeout(function(){
+						     $modal.load($url, '', function(){
+						      $modal.modal();
+						    });
+						  }, 1000);
+						});
+                	</r:script>
 				</g:if>
 				
 				<g:if test="${processInstanceDetailInstance?.variables}">
@@ -239,22 +256,6 @@
 			</div>
 
 		</div>
-		<div id="manage-popup" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                        <h3 id="myModalLabel">Pop-up activity</h3>
-                    </div>
-                    <div class="modal-body">
-                        <p>...</p>
-                    </div>
-                    <div class="modal-footer">
-                        <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-                        <g:link class="btn" action="show" id="${activityInstance?.id}"><g:message code="default.button.reqresp"/></g:link>
-							<g:link class="btn" action="show" id="${activityInstance?.id}"><g:message code="default.button.activity.retry.label"/></g:link>
-							<g:link class="btn" action="show" id="${activityInstance?.id}"><g:message code="default.button.activity.modify.label"/></g:link>
-							<g:link class="btn" action="show" id="${activityInstance?.id}"><g:message code="default.button.activity.cancel.label"/></g:link>
-							<g:link class="btn" action="show" id="${activityInstance?.id}"><g:message code="default.button.activity.forceok.label"/></g:link>
-                    </div>
-                </div>
+		
 	</body>
 </html>
