@@ -196,11 +196,9 @@
 						  // create the backdrop and wait for next modal to be triggered
 						  $('body').modalmanager('loading');
 						  var $url= $(this).attr('href')
-						  setTimeout(function(){
 						     $modal.load($url, '', function(){
 						      $modal.modal();
 						    });
-						  }, 1000);
 						});
                 	</r:script>
 				</g:if>
