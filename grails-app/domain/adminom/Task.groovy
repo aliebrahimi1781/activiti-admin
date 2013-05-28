@@ -18,6 +18,7 @@ class Task {
     }
 
     static mapping = {
+        datasource 'activiti'
         table 'ACT_HI_TASKINST'
         id column:'ID_'
 		processDefinitionId column:'PROC_DEF_ID_'

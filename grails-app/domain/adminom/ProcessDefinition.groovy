@@ -16,6 +16,7 @@ class ProcessDefinition {
     }
 
     static mapping = {
+        datasource 'activiti'
         table 'ACT_RE_PROCDEF' 
     	id column:'ID_'
 		category column:'CATEGORY_'

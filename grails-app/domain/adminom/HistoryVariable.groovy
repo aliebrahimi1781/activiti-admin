@@ -13,6 +13,7 @@ class HistoryVariable {
     }
 
     static mapping = {
+        datasource 'activiti'
         table 'ACT_HI_VARINST'
         id column:'ID_'
         variableName column:'NAME_'

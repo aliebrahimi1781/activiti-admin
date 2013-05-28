@@ -13,6 +13,7 @@ class Variable {
     }
 
     static mapping = {
+        datasource 'activiti'
         table 'ACT_HI_DETAIL'
         id column:'ID_'
         name column:'NAME_'

@@ -13,6 +13,7 @@ class Activity {
     }
 
     static mapping = {
+        datasource 'activiti'
         table 'ACT_HI_ACTINST'
         id column:'ID_'
 		activityName column:'ACT_NAME_'

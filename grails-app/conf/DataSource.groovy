@@ -1,10 +1,3 @@
-dataSource {
-    pooled = true
-    readonly=true
-    driverClassName = "com.mysql.jdbc.Driver"
-    username = "activiti"
-    password = "activiti"
-}
 hibernate {
     cache.use_second_level_cache = true
     cache.use_query_cache = false
@@ -14,21 +7,43 @@ hibernate {
 environments {
     development {
         dataSource {
+            dbCreate = "create-drop"
+            url = "jdbc:h2:mem:devDb"
+        }
+        dataSource_activiti {
+            pooled = true
+            readonly=true
+            driverClassName = "com.mysql.jdbc.Driver"
+            username = "activiti"
+            password = "activiti"
             dbCreate = "validate" // one of 'create', 'create-drop', 'update', 'validate', ''
             url = "jdbc:mysql://localhost:3306/activiti?autoReconnect=true"
         }
     }
     test {
-        dataSource {
-            dbCreate = "update"
+        dataSource_activiti {
+            pooled = true
+            readonly=true
+            driverClassName = "com.mysql.jdbc.Driver"
+            username = "activiti"
+            password = "activiti"
+            dbCreate = "validate" // one of 'create', 'create-drop', 'update', 'validate', ''
             url = "jdbc:mysql://localhost:3306/activiti?autoReconnect=true"
+        }
+        dataSource {
+            dbCreate = "create-drop"
+            url = "jdbc:h2:mem:devDb"
         }
     }
     production {
-        dataSource {
-            dbCreate = "update"
-            url = "jdbc:mysql://localhost:3306/activiti?autoReconnect=true"
+        dataSource_activiti {
             pooled = true
+            readonly=true
+            driverClassName = "com.mysql.jdbc.Driver"
+            username = "activiti"
+            password = "activiti"
+            dbCreate = "validate" // one of 'create', 'create-drop', 'update', 'validate', ''
+            url = "jdbc:mysql://localhost:3306/activiti?autoReconnect=true"
             properties {
                maxActive = -1
                minEvictableIdleTimeMillis=1800000
@@ -39,6 +54,10 @@ environments {
                testOnReturn=true
                validationQuery="SELECT 1"
             }
+        }
+        dataSource {
+            dbCreate = "create-drop"
+            url = "jdbc:h2:mem:devDb"
         }
     }
 }

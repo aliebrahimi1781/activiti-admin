@@ -25,6 +25,7 @@ class ProcessInstanceDetail {
     }
 
     static mapping = {
+        datasource 'activiti'
         table 'ACT_HI_PROCINST'
         id column:'ID_'
         processInstanceId column:'PROC_INST_ID_'
