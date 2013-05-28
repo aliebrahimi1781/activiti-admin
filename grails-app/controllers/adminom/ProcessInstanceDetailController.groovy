@@ -5,6 +5,7 @@ import org.springframework.dao.DataIntegrityViolationException
 class ProcessInstanceDetailController {
 
     def filterPaneService
+    def orderManagementService
 
     def index() {
         log.debug "action 'index' - ${params}"

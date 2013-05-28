@@ -38,7 +38,7 @@ class ProcessInstanceDetail {
         startActivityId column:'START_ACT_ID_'
         endActivityId column:'END_ACT_ID_'
 
-        startDate formula: "date(START_TIME_)"
+        startDate formula: "trunc(START_TIME_)"
 
         version false
     }

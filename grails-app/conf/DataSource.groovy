@@ -13,11 +13,11 @@ environments {
         dataSource_activiti {
             pooled = true
             readonly=true
-            driverClassName = "com.mysql.jdbc.Driver"
-            username = "activiti"
-            password = "activiti"
+            driverClassName = "org.h2.Driver" //"com.mysql.jdbc.Driver"
+            username = "sa" //"activiti"
+            password = "" //"activiti"
             dbCreate = "validate" // one of 'create', 'create-drop', 'update', 'validate', ''
-            url = "jdbc:mysql://localhost:3306/activiti?autoReconnect=true"
+            url = "jdbc:h2:tcp://localhost/~/activiti" //"jdbc:mysql://localhost:3306/activiti?autoReconnect=true"
         }
     }
     test {

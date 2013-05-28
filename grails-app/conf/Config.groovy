@@ -62,8 +62,8 @@ grails.hibernate.cache.queries = false
 environments {
     development {
         grails.logging.jul.usebridge = true
-        order.management.json.host = 'http://10.68.172.89:8080'
-        order.management.json.service = '/activiti-rest/service'
+        order.management.json.host = 'http://10.68.172.196:8180'
+        order.management.json.service = '/capactiviti-webapp/rest/process'
         order.management.json.user = 'kermit'
         order.management.json.password = 'kermit'
     }
