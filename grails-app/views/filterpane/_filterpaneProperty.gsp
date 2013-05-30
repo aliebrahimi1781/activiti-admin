@@ -1,4 +1,4 @@
-<div class="control-group">
+<div class="control-group" style="margin-bottom: 0px;">
 	<label class="control-label">${fieldLabel}</label>
 	<div class="controls">
 		<g:select id="${opName}" 

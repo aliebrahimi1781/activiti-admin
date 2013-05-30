@@ -62,7 +62,7 @@ grails.hibernate.cache.queries = false
 environments {
     development {
         grails.logging.jul.usebridge = true
-        order.management.json.host = 'http://10.68.172.196:8180'
+        order.management.json.host = 'http://localhost:8080'
         order.management.json.service = '/capactiviti-webapp/rest/process'
         order.management.json.user = 'kermit'
         order.management.json.password = 'kermit'
@@ -77,11 +77,6 @@ environments {
 
 // log4j configuration
 log4j = {
-    debug "grails.app.services.adminom"
-    debug "grails.app.controllers.adminom"
-    debug "groovy.adminom"
-    error "org.apache.http.headers"
-    error "org.apache.http.wire"
     // Example of changing the log pattern for the default console appender:
     //
     appenders {
@@ -95,9 +90,16 @@ log4j = {
            'org.codehaus.groovy.grails.web.mapping',        // URL mapping
            'org.codehaus.groovy.grails.commons',            // core / classloading
            'org.codehaus.groovy.grails.plugins',            // plugins
-           'org.codehaus.groovy.grails.orm.hibernate',      // hibernate integration
            'org.springframework',
-           'org.hibernate',
            'net.sf.ehcache.hibernate'
+
+    debug "grails.app.services.adminom"
+    debug "grails.app.controllers.adminom"
+    debug "groovy.adminom"
+    error "org.apache.http.headers"
+    error "org.apache.http.wire"
+    debug 'org.hibernate.SQL'
+    trace 'org.hibernate.type.descriptor.sql.BasicBinder'
+
            
 }

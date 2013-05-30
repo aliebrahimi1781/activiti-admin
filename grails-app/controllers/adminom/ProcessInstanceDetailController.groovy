@@ -4,29 +4,7 @@ import org.springframework.dao.DataIntegrityViolationException
 
 class ProcessInstanceDetailController {
 
-    def filterPaneService
     def orderManagementService
-
-    def index() {
-        log.debug "action 'index' - ${params}"
-        redirect action: 'list', params: params
-    }
-
-    def list() {
-        log.debug "action 'list' - ${params}"
-        params.max = Math.min(params.max ? params.int('max') : 10, 100)
-        [processInstanceDetailInstanceList: ProcessInstanceDetail.list(params), processInstanceDetailInstanceTotal: ProcessInstanceDetail.count()]
-    }
-
-    def filter = {
-        log.debug "action 'filter' - ${params}"
-        if(!params.max) params.max = 10
-        render( view:'list',
-            model:[ processInstanceDetailInstanceList: filterPaneService.filter( params, ProcessInstanceDetail ),
-            ProcessInstanceDetailCount: filterPaneService.count( params, ProcessInstanceDetail ),
-            filterParams: org.grails.plugin.filterpane.FilterPaneUtils.extractFilterParams(params),
-            params:params ] )
-    }
 
     def abortProcess() {
         log.debug "action 'abortProcess' - ${params}"

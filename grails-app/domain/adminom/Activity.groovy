@@ -7,6 +7,7 @@ class Activity {
 	Date startTime
 	Date endTime
 	Long duration
+    String subProcess
 
 	static belongsTo = [ processInstance : ProcessInstanceDetail ]
     static constraints = {
@@ -23,6 +24,7 @@ class Activity {
 		endTime column:'END_TIME_'
 		duration column:'DURATION_'
 		processInstance column : 'PROC_INST_ID_'
+        subProcess column : 'CALL_PROC_INST_ID_'
 		version false
     }
 }

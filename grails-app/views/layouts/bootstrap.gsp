@@ -43,7 +43,7 @@
 					<div class="nav-collapse">
 						<ul class="nav">							
 							<li><a href="${createLink(uri: '/')}"><g:message code="default.nav.home"/></a></li>
-							<li><g:link controller="ProcessInstanceDetail" action="index"><g:message code="default.nav.monitoring"/></g:link></li>
+							<li><g:link controller="ProcessInstance" action="index"><g:message code="default.nav.monitoring"/></g:link></li>
 							<li><g:link controller="Report" action="globalView"><g:message code="default.nav.reporting"/></g:link></li>
 							<li><a href="${createLink(uri: '/')}"><g:message code="default.nav.administration"/></a></li>
 						</ul>
