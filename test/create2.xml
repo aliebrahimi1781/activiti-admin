@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<order>
+    <orderId>052902</orderId>
+    <clientId>14-544-257</clientId>
+    <products>
+        <action>migration</action>
+        <id>5</id>
+        <name>ADSL</name>
+    </products>
+    <products>
+        <action>creation</action>
+        <id>6</id>
+        <name>FIXE</name>
+        <settings>
+            <name>param1</name>
+            <value>value1</value>
+        </settings>
+    </products>
+</order>
+
