@@ -7,7 +7,6 @@ class ProcessInstanceDetail {
     Date startTime
     String startActivityId
     String startUserId
-    String status
     Date endTime
     String endActivityId
     Long duration
@@ -27,7 +26,7 @@ class ProcessInstanceDetail {
 
     static mapping = {
         datasource 'activiti'
-        table 'VIEW_HI_PROCINST'
+        table 'ACT_HI_PROCINST'
         id column:'ID_'
         processInstanceId column:'PROC_INST_ID_'
         businessKey column:'BUSINESS_KEY_'
@@ -39,7 +38,6 @@ class ProcessInstanceDetail {
         startActivityId column:'START_ACT_ID_'
         endActivityId column:'END_ACT_ID_'
         parentProcess column:'SUPER_PROCESS_INSTANCE_ID_'
-        status column:'STATUS'
         startDate formula: "trunc(START_TIME_)"
 
         version false

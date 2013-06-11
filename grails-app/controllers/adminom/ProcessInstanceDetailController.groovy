@@ -24,8 +24,9 @@ class ProcessInstanceDetailController {
             redirect action: 'list'
             return
         }
-
-        [processInstanceDetailInstance: processInstanceDetailInstance]
+        def orderdata = orderManagementService.getOrderDetail(processInstanceDetailInstance.id)
+log.debug "orderdata to view model ${orderdata}"
+        [processInstanceDetailInstance: processInstanceDetailInstance, orderdata: orderdata]
     }
 
     def activityManage() {

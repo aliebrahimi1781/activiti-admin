@@ -7,7 +7,7 @@
         <g:set var="entityName" value="${message(code: 'processInstanceDetail.label', default: 'ProcessInstanceDetail')} ${processInstanceDetailInstance.id}" />
         <title><g:message code="default.show.label" args="[entityName]" /></title>
         <r:require module="modal" />
-
+        <r:require module="treeview" />
     </head>
     <body>
         <div class="row-fluid">
@@ -126,6 +126,12 @@
                     </g:if>
                 </dl>
                 
+
+                <h5><g:message code="processInstanceDetail.order.label" default="Order" /></h5>
+                <g:if test="orderdata">    
+                    <g:render template="orderdata" bean="${orderdata}" />
+                </g:if>   
+
                     
                 <g:if test="${processInstanceDetailInstance?.tasks}">
                 <h5><g:message code="processInstanceDetail.tasks.label" default="Tasks" /></h5>

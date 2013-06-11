@@ -56,7 +56,7 @@
                                 <td>${fieldValue(bean: processInstanceInstance, field: "id")}</td>
                                 <td>${fieldValue(bean: processInstanceInstance, field: "businessKey")}</td>
                                 <td>${fieldValue(bean: processInstanceInstance, field: "order.orderID")}</td>
-                                <td>${fieldValue(bean: processInstanceInstance, field: "order.customerID")}</td>
+                                <td>${fieldValue(bean: processInstanceInstance, field: "order.clientID")}</td>
                                 <td>${fieldValue(bean: processInstanceInstance, field: "processDefinitionId")}</td>
                                 <td>${fieldValue(bean: processInstanceInstance, field: "status")}</td>
                                 <td><g:formatDate date="${processInstanceInstance?.startTime}" /></td>
